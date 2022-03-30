@@ -37,3 +37,7 @@ body {
   font-size: 0.8em;
   font-weight: 100;
 }
+small {
+  letter-spacing: 3px;
+  font-size: 0.7em;
+}
