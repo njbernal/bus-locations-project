@@ -121,6 +121,7 @@ const animateBuses = async () => {
  * Create map triggers the animateBuses() call on load
  */
 const main = async () => {
+    console.log("Hello there. Thanks for stopping by. - Nicolas");
     createMap();
 }
 
