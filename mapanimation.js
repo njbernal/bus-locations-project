@@ -87,13 +87,17 @@ const drawBuses = (data) => {
     });
 }
 
-// Starts the program on load
-const main = async () => {
-    createMap();
+const animateBuses = async () => {
     const buses = await getBusLocations();
     drawBuses(buses);
     let p = document.getElementById('latest_data');
     p.innerHTML = `There are currently: <strong>${buses.length}</strong> buses on the road`;
+    setTimeout(animateBuses, 5000);
+}
+// Starts the program on load
+const main = async () => {
+    createMap();
+    animateBuses();
 }
 
 main();
