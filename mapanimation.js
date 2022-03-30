@@ -21,6 +21,31 @@ const makeFeature = (coords) => {
     return feature;
 }
 
+const addLayer = () => {
+    let geojson = {
+        "type": "FeatureCollection", "features": points
+    }
+    map.addSource('point', {
+        "type": "geojson",
+        "data": geojson
+    });
+    map.addLayer({
+        'id': 'points',
+        'type': 'symbol',
+        'source': 'point', // reference the data source
+        'layout': {
+            'icon-image': 'bus_icon', // reference the image
+            'icon-size': 0.15
+        }
+    });
+}
+
+const removeLayer = () => {
+    map.removeLayer('points');
+    map.removeSource('point');
+}
+
+
 /**
  * Load the map centered on our coordinates
  * Load the bus image. Image is used with permission from vecteezy.com
@@ -42,16 +67,7 @@ const createMap = () => {
         (error, image) => {
             if (error) throw error;
             map.addImage('bus_icon', image);
-
-            map.addLayer({
-                'id': 'points',
-                'type': 'symbol',
-                'source': 'point', // reference the data source
-                'layout': {
-                    'icon-image': 'bus_icon', // reference the image
-                    'icon-size': 0.15
-                }
-            });
+            animateBuses();
         });          
     });    
 }
@@ -77,14 +93,7 @@ const drawBuses = (data) => {
         points.push(makeFeature(coords));
         index++;
     }
-    let geojson = {
-        "type": "FeatureCollection", "features": points
-    }
-
-    map.addSource('point', {
-        "type": "geojson",
-        "data": geojson
-    });
+    addLayer();
 }
 
 const animateBuses = async () => {
@@ -92,12 +101,14 @@ const animateBuses = async () => {
     drawBuses(buses);
     let p = document.getElementById('latest_data');
     p.innerHTML = `There are currently: <strong>${buses.length}</strong> buses on the road`;
-    setTimeout(animateBuses, 5000);
+    setTimeout( () => {
+        removeLayer();
+        animateBuses();
+    }, 20000);
 }
 // Starts the program on load
 const main = async () => {
     createMap();
-    animateBuses();
 }
 
 main();
