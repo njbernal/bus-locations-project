@@ -99,8 +99,11 @@ const drawBuses = (data) => {
 const animateBuses = async () => {
     const buses = await getBusLocations();
     drawBuses(buses);
-    let p = document.getElementById('latest_data');
-    p.innerHTML = `THERE ARE CURRENTLY ${buses.length} BUSES ON THE ROAD`;
+    const p = document.getElementById('latest_data');
+    const currentDate = new Date();
+    const currentTime = currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
+
+    p.innerHTML = `THERE ARE CURRENTLY ${buses.length} BUSES ON THE ROAD. LAST UPDATE: ${currentTime}`;
     setTimeout( () => {
         removeLayer();
         animateBuses();

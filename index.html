@@ -6,76 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
-    <!--<link href="./styles.css" rel="stylesheet" /> -->
+    <link href="./styles.css" rel="stylesheet" />
     <title>Current Locations in Boston</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-size: 1em;
-          }
-          #map {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 100%;
-          }
-          
-          .container {
-              position: absolute;
-              top: 50px;
-              display: flex;
-              flex-direction: column;
-                width: 100%;
-                padding: 0px;
-                margin: 0px;
-                background-color: #fee082;
-          }
-
-          .map-overlay {
-            font-family: Arial, Helvetica, sans-serif;
-            width: 100%;
-            background-image: linear-gradient(to left, #aae08fdf, #75cff0df);
-            padding: 10px;
-            color: rgb(70, 70, 70);
-            text-shadow: 0px 0px 2px #fee08299;
-            text-align: center;
-          }
-          .title {
-            letter-spacing: 5px;
-            font-weight: 500;
-            font-size: 5vw;
-            padding: 5px;
-            margin: 0px;
-          }
-          .map-stats {
-              display: flex;
-              flex-direction: row;
-              justify-content: flex-start;
-              align-items: center;
-            background: rgba(255, 255, 255, 0.8);
-            box-shadow: 0 0 5px 1px #75cff0ff;
-            letter-spacing: 2px;
-            color: #313131;
-            padding: 0 30px 0 30px;
-            margin: 0;
-            font-size: 0.9em;
-            font-weight: 600;
-          }
-          .map-stats > p {
-              margin: 0px;
-              padding: 5px;
-          }
-          .latest-data {
-              display: flex;
-              letter-spacing: 3px;
-              flex-grow: 1;
-          }
-          .update-data {
-              color: #aaaaaa;
-              font-size: 0.8em;
-          }
-    </style>
 </head>
 <body>
     <div id="map"></div>
