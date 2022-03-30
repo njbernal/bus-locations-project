@@ -96,6 +96,9 @@ const drawBuses = (data) => {
     addLayer();
 }
 
+/**
+ * Function to animate and update buses every 20 seconds
+ */
 const animateBuses = async () => {
     const buses = await getBusLocations();
     drawBuses(buses);
@@ -112,7 +115,11 @@ const animateBuses = async () => {
         animateBuses();
     }, 20000);
 }
-// Starts the program on load
+
+/**
+ * Creates the map.
+ * Create map triggers the animateBuses() call on load
+ */
 const main = async () => {
     createMap();
 }

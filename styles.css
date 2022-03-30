@@ -11,14 +11,14 @@ body {
 }
 
 .container {
-    position: absolute;
-    top: 50px;
-    display: flex;
-    flex-direction: column;
-      width: 100%;
-      padding: 0px;
-      margin: 0px;
-      background-color: #fee082;
+  position: absolute;
+  top: 50px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  background-color: #fee082;
 }
 
 .map-overlay {
@@ -38,10 +38,10 @@ body {
   margin: 0px;
 }
 .map-stats {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
   background: rgba(255, 255, 255, 0.8);
   box-shadow: 0 0 5px 1px #75cff0ff;
   letter-spacing: 2px;
@@ -52,17 +52,17 @@ body {
   font-weight: 600;
 }
 .map-stats > p {
-    margin: 0px;
-    padding: 5px;
+  margin: 0px;
+  padding: 5px;
 }
 .latest-data {
-    display: flex;
-    letter-spacing: 3px;
-    flex-grow: 1;
-    text-align: left;
+  display: flex;
+  letter-spacing: 3px;
+  flex-grow: 1;
+  text-align: left;
 }
 .update-data {
-    color: #aaaaaa;
-    font-size: 0.7em;
-    text-align: right;
+  color: #aaaaaa;
+  font-size: 0.7em;
+  text-align: right;
 }
