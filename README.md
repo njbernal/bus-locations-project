@@ -6,7 +6,7 @@ This app is actually useful to anyone waiting for a bus in the MBTA coverage are
 
 ## How to run it
 
-You can run it via my own **portfolio** website, <a href="http://nickbernal.com/apps/buses" target="_blank">www.nickbernal.com/apps/buses</a>
+You can run it via my own **portfolio** website <a href="http://nickbernal.com/apps/buses" target="_blank">**www.nickbernal.com/apps/buses**</a>
 To run it on your own, please get your own API keys. All you need is an http-server running.
 
 ## Future improvements
@@ -17,8 +17,8 @@ their API key. In the next iteration I will change this app to be L.A. based.
 Current road map:
 
 - Add a Los Angeles version
+- Center the map to the user's location if the user is in the location
 - Add the bus number overlay over each image in order to better see each route
-- Center the map to the user's location
 - Rotate each bus to face direction of travel (possible for MBTA data, as they provide the direction-of-travel information)
 
 # Author
