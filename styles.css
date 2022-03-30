@@ -21,3 +21,12 @@ body {
   color: black;
   text-align: center;
 }
+
+.map-overlay h2 {
+  margin: 5px;
+  padding: 0px;
+}
+.map-overlay p {
+  padding: 0px;
+  margin: 5px;
+}

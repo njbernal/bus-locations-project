@@ -92,6 +92,8 @@ const main = async () => {
     createMap();
     const buses = await getBusLocations();
     drawBuses(buses);
+    let p = document.getElementById('latest_data');
+    p.innerHTML = `There are currently: <strong>${buses.length}</strong> buses on the road`;
 }
 
 main();
