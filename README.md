@@ -6,7 +6,7 @@ This app is actually useful to anyone waiting for a bus in the MBTA coverage are
 
 ## How to run it
 
-You can run it via my own **portfolio** website, [nickbernal.com](https://nickbernal.com/apps/buses/)
+You can run it via my own **portfolio** website, [nickbernal.com/apps/buses](https://nickbernal.com/apps/buses/){:target="\_blank"}
 To run it on your own, please get your own API keys. All you need is an http-server running.
 
 ## Future improvements
