@@ -100,7 +100,7 @@ const animateBuses = async () => {
     const buses = await getBusLocations();
     drawBuses(buses);
     let p = document.getElementById('latest_data');
-    p.innerHTML = `There are currently: <strong>${buses.length}</strong> buses on the road`;
+    p.innerHTML = `THERE ARE CURRENTLY ${buses.length} BUSES ON THE ROAD`;
     setTimeout( () => {
         removeLayer();
         animateBuses();

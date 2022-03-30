@@ -12,32 +12,44 @@ body {
 
 .map-overlay {
   font-family: Arial, Helvetica, sans-serif;
-  position: absolute;
+  position: relative;
   width: 100%;
   left: 0;
   top: 20px;
-  background-image: linear-gradient(to right, #aae08fcf, #75cff0cf);
+  background-image: linear-gradient(to left, #aae08fdf, #75cff0df);
   padding: 10px;
-  box-shadow: 0 5px 7px 2px #75cff0c4;
-  color: black;
+  color: rgb(70, 70, 70);
+  text-shadow: 0px 0px 3px #75cff0ff;
   text-align: center;
 }
 
-.map-overlay h2 {
-  margin: 5px;
-  padding: 0px;
-  letter-spacing: 5px;
-}
-.map-overlay p {
-  padding: 0px;
-  margin: 5px;
-  letter-spacing: 2px;
-}
-.latest-data {
-  font-size: 0.8em;
+.map-stats {
+  width: 35%;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  box-shadow: 0 0 5px 1px #75cff0ff;
+  padding: 10px 20px 10px 20px;
+  text-align: center;
+  padding: 20px 40px 20px 40px;
   font-weight: 100;
-}
-small {
   letter-spacing: 3px;
-  font-size: 0.7em;
+  font-size: 1.1em;
+  color: #313131;
+}
+
+.title {
+  letter-spacing: 5px;
+  font-weight: 500;
+  font-size: 5vw;
+  padding: 5px;
+  margin: 0px;
+}
+
+.latest-data {
+  text-shadow: 1px 1px 2px #c5c5c5;
+}
+.smaller {
+  font-size: 0.6em;
+  color: #6b6b6b;
 }
