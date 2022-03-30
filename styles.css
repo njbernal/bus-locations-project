@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.map-overlay {
+  font-family: Arial, Helvetica, sans-serif;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 20px;
+  background-image: linear-gradient(to right, #aae08fc4, #75cff0c4);
+  padding: 10px;
+  box-shadow: 0 5px 10px 1px rgba(255, 237, 215, 0.3);
+  color: black;
+  text-align: center;
+}
