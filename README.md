@@ -25,6 +25,7 @@ Current road map:
 # Author
 
 Nicolas Bernal. Contact me **hello@nickbernal.com**
+Credit to [vecteezy.com](vecteezy.com) for the use of the bus PNG
 
 # License Information
 
