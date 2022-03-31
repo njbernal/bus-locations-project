@@ -1,68 +1,66 @@
-body {
+body,h2,p, div, h2, h3  {
   margin: 0;
   padding: 0;
-  font-size: 1em;
+}
+body {
+  background: #000030;
+  width: 100%;
+  height: 100%;
+  font-size: 0.8em;
+  font-family: Arial, Helvetica, sans-serif;
 }
 #map {
   position: absolute;
   top: 0;
   bottom: 0;
   width: 100%;
+  z-index: 0;
 }
 
 .container {
-  position: absolute;
-  top: 50px;
   display: flex;
   flex-direction: column;
-  width: 100%;
-  padding: 0px;
-  margin: 0px;
-  background-color: #fee082;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: absolute;
+  padding: 10px;
+  border-radius: 5px;
+  left: 20px;
+  top: 20px;
+  background: #f6f6f6fa;
+  color: #373767;
+  box-shadow: 0 0 10px 1px rgb(41, 41, 41, 0.5);
+  letter-spacing: 1px;
+}
+h2 {
+  margin: 3px 0 3px 0;
+  font-size: 2em;
+}
+h3 {
+  margin: 3px 0 3px 0;
+  font-size: 1em;
 }
 
-.map-overlay {
-  font-family: Arial, Helvetica, sans-serif;
-  width: 100%;
-  background-image: linear-gradient(to left, #aae08fdf, #75cff0df);
-  padding: 10px;
-  color: rgb(70, 70, 70);
-  text-shadow: 0px 0px 2px #fee08299;
-  text-align: center;
-}
-.title {
-  letter-spacing: 5px;
-  font-weight: 500;
-  font-size: 5vw;
-  padding: 5px;
-  margin: 0px;
-}
-.map-stats {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.8);
-  box-shadow: 0 0 5px 1px #75cff0ff;
-  letter-spacing: 2px;
-  color: #313131;
-  padding: 0 30px 0 30px;
-  margin: 0;
+p {
+  margin: 5px 10px 5px 10px;
   font-size: 0.9em;
-  font-weight: 600;
 }
-.map-stats > p {
-  margin: 0px;
-  padding: 5px;
+.footer {
+  position:absolute;
+  letter-spacing: 2px;
+  font-size: 0.9em;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  padding: 5px 0 0 0;
+  background-color: #373767fa;
+  color: #acacac;
+  box-shadow: 0 0 10px 2px #373767aa;
 }
-.latest-data {
-  display: flex;
-  letter-spacing: 3px;
-  flex-grow: 1;
-  text-align: left;
+.footer p {
+  margin: 0 10px 3px 10px;
 }
-.update-data {
-  color: #aaaaaa;
-  font-size: 0.7em;
-  text-align: right;
+.update-time {
+  color: rgb(26, 99, 32);
+  font-weight: 100;
 }

@@ -15,10 +15,12 @@ My original plan was to do this for buses in **Los Angeles**, where I am located
 
 Current road map:
 
-- Add a Los Angeles version
-- Center the map to the user's location if the user is in the location
+- Add a Los Angeles version, if possible
+- Center the map to the user's location if the user is in the location automatically
 - Add the bus number overlay over each image in order to better see each route
 - Rotate each bus to face direction of travel (possible for MBTA data, as they provide the direction-of-travel information)
+- Adding bus click behavior: displaying data for the route clicked.
+- Identify which bus stop the user is closest to and inform the user wether the bus already left or not.
 
 # Author
 
