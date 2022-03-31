@@ -105,10 +105,10 @@ const animateBuses = async () => {
     const p = document.getElementById('latest_data');
     const currentDate = new Date();
     const currentTime = currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
-    p.innerHTML = `THERE ARE CURRENTLY ${buses.length} BUSES ON THE ROAD.`;
+    p.innerHTML = `CURRENT BUSES ON THE ROAD: ${buses.length}`;
 
     const updateSpeed = document.getElementById('updateSpeed');
-    updateSpeed.innerHTML = `DATA WILL UPDATE EVERY 20 SECONDS. LAST UPDATE: ${currentTime}`;
+    updateSpeed.innerHTML = `${currentTime}`;
 
     setTimeout( () => {
         removeLayer();

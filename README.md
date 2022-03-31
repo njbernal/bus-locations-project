@@ -2,7 +2,6 @@
 
 This app gathers the current location for **every** MBTA bus currently on the road, per the MBTA API information, and prints it to the map.
 The locations will update every 20 seconds.
-This app is actually useful to anyone waiting for a bus in the MBTA coverage area!
 
 ## How to run it
 
@@ -12,8 +11,7 @@ To run it on your own, please get your own API keys. All you need is an http-ser
 
 ## Future improvements
 
-My original plan was to do this for buses in **Los Angeles**, where I am located. However there is a waiting period to get
-their API key. In the next iteration I will change this app to be L.A. based.
+My original plan was to do this for buses in **Los Angeles**, where I am located. However, there is an application process to get API access that I am waiting on. In the next iteration I will change this app to be L.A. based.
 
 Current road map:
 
