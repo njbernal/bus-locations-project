@@ -1,4 +1,9 @@
-body,h2,p, div, h2, h3  {
+body,
+h2,
+p,
+div,
+h2,
+h3 {
   margin: 0;
   padding: 0;
 }
@@ -46,7 +51,7 @@ p {
   font-size: 0.9em;
 }
 .footer {
-  position:absolute;
+  position: absolute;
   letter-spacing: 2px;
   font-size: 0.9em;
   bottom: 0px;
@@ -63,4 +68,19 @@ p {
 .update-time {
   color: rgb(26, 99, 32);
   font-weight: 100;
+}
+
+.mapboxgl-popup {
+  border-radius: 20px;
+}
+.mapboxgl-popup-content {
+  background-color: #000030aa;
+  color: white;
+  max-width: 400px;
+  border-radius: 20px;
+}
+.mapboxgl-popup ul {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
 }

@@ -7,7 +7,7 @@ const points = [];
  * @param {*} coords are the current coordinates of the bus
  * @returns a feature which should be added to an array of features for GeoJSON
  */
-const makeFeature = (coords) => {
+const makeFeature = (coords, route) => {
     let feature = {
         "type": "Feature",
         "geometry": {
@@ -15,7 +15,8 @@ const makeFeature = (coords) => {
             "coordinates": coords
         },
         "properties": {
-            "name": 'bus'
+            "name": 'bus',
+            "description": route
         }
     }
     return feature;
@@ -59,6 +60,37 @@ const createMap = () => {
         zoom: 14,
     });
 
+    const popup = new mapboxgl.Popup({
+        closeButton: false,
+        closeOnClick: false
+    });
+            
+    map.on('mouseenter', 'points', (e) => {
+        // Change the cursor style as a UI indicator.
+        map.getCanvas().style.cursor = 'pointer';
+            
+        // Copy coordinates array.
+        const coordinates = e.features[0].geometry.coordinates.slice();
+        const description = e.features[0].properties.description;
+            
+        // Ensure that if the map is zoomed out such that multiple
+        // copies of the feature are visible, the popup appears
+        // over the copy being pointed to.
+        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        }
+            
+        // Populate the popup and set its coordinates
+        // based on the feature found.
+        popup.setLngLat(coordinates).setHTML(description).addTo(map);
+        console.log(coordinates);
+    });
+            
+    map.on('mouseleave', 'places', () => {
+        map.getCanvas().style.cursor = '';
+        popup.remove();
+    });
+
     // Load the image of the bus
     // And set up the bus layer
     map.on('load', () => {
@@ -86,11 +118,16 @@ const getBusLocations = async () => {
  */
 const drawBuses = (data) => {
     let index = 0;
+    console.log(data[0]);
     for (bus of data) {
         let lat = bus.attributes.latitude;
         let lon = bus.attributes.longitude;
         let coords = [lon, lat];
-        points.push(makeFeature(coords));
+        let route = bus.relationships.route.data.id;
+        let description = `<h3>Route: ${bus.relationships.route.data.id}</h3>`;
+        description += `<ul><li>Occupancy Status: ${bus.attributes.occupancy_status}</li>`;
+        description += `<li>Speed: ${bus.attributes.speed}</li></ul>`
+        points.push(makeFeature(coords, description));
         index++;
     }
     addLayer();
@@ -110,10 +147,10 @@ const animateBuses = async () => {
     const updateSpeed = document.getElementById('updateSpeed');
     updateSpeed.innerHTML = `${currentTime}`;
 
-    setTimeout( () => {
-        removeLayer();
-        animateBuses();
-    }, 20000);
+    // setTimeout( () => {
+    //     removeLayer();
+    //     animateBuses();
+    // }, 20000);
 }
 
 /**
