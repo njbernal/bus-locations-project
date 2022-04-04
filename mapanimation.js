@@ -83,7 +83,6 @@ const createMap = () => {
         // Populate the popup and set its coordinates
         // based on the feature found.
         popup.setLngLat(coordinates).setHTML(description).addTo(map);
-        console.log(coordinates);
     });
             
     map.on('mouseleave', 'places', () => {
@@ -118,7 +117,6 @@ const getBusLocations = async () => {
  */
 const drawBuses = (data) => {
     let index = 0;
-    console.log(data[0]);
     for (bus of data) {
         let lat = bus.attributes.latitude;
         let lon = bus.attributes.longitude;
