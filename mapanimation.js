@@ -77,12 +77,16 @@ const createMap = () => {
         // copies of the feature are visible, the popup appears
         // over the copy being pointed to.
         while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
         }
             
         // Populate the popup and set its coordinates
         // based on the feature found.
         popup.setLngLat(coordinates).setHTML(description).addTo(map);
+
+        // const marker = new mapboxgl.Marker()
+        //     .setLngLat([-71.104081, 42.365554])
+        //     .addTo(map);
     });
             
     map.on('mouseleave', 'places', () => {
