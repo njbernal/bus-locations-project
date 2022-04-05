@@ -1,6 +1,6 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoibmpiZXJuYWwiLCJhIjoiY2wxZHRxNXI3MGFlNjNkcXNkcGo5bmRwaiJ9.IkxJlg4WrWQw73H1WwlV_w';
 let map;
-const points = [];
+let points = [];
 
 /**
  * Create one 'Feature' which is a bus location to be added to the array
