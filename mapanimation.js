@@ -113,7 +113,7 @@ const getBusLocations = async () => {
 const drawBuses = async () => {
     const data = await getBusLocations();
     points = [];
-    for (bus of data) {
+    for (let bus of data) {
         let lat = bus.attributes.latitude;
         let lon = bus.attributes.longitude;
         let coords = [lon, lat];
