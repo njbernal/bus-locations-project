@@ -1,6 +1,6 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoibmpiZXJuYWwiLCJhIjoiY2wxZHRxNXI3MGFlNjNkcXNkcGo5bmRwaiJ9.IkxJlg4WrWQw73H1WwlV_w';
-let map;
-let points = [];
+const map;
+const points = [];
 
 /**
  * Create one 'Feature' which is a bus location to be added to the array
@@ -58,10 +58,6 @@ const createMap = () => {
         // Populate the popup and set its coordinates
         // based on the feature found.
         popup.setLngLat(coordinates).setHTML(description).addTo(map);
-
-        // const marker = new mapboxgl.Marker()
-        //     .setLngLat([-71.104081, 42.365554])
-        //     .addTo(map);
     });
             
     map.on('mouseleave', 'points', () => {
@@ -69,16 +65,16 @@ const createMap = () => {
         popup.remove();
     });
 
-    // Load the image of the bus
-    // And set up the bus layer
+    // Load the image of the bus and set up the bus layer
     map.on('load', () => {
         map.loadImage(
-        './vector-bus-icon.png',
-        (error, image) => {
-            if (error) throw error;
-            map.addImage('bus_icon', image);
-            drawBuses();
+            './vector-bus-icon.png',
+            (error, image) => {
+                if (error) throw error;
+                map.addImage('bus_icon', image);
+                drawBuses();
         });   
+        
         let geojson = {
             "type": "FeatureCollection", "features": points
         }
@@ -92,7 +88,7 @@ const createMap = () => {
             'source': 'point', // reference the data source
             'layout': {
                 'icon-image': 'bus_icon', // reference the image
-                'icon-size': 0.15
+                'icon-size': 0.13
             }
         });       
     });    
@@ -145,7 +141,6 @@ const updateText = (buses) => {
     const updateSpeed = document.getElementById('updateSpeed');
     updateSpeed.innerHTML = `${currentTime}`;
 }
-
 
 /**
  * Creates the map.
