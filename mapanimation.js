@@ -1,6 +1,6 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoibmpiZXJuYWwiLCJhIjoiY2wxZHRxNXI3MGFlNjNkcXNkcGo5bmRwaiJ9.IkxJlg4WrWQw73H1WwlV_w';
 let map;
-const points = [];
+let points = [];
 
 /**
  * Create one 'Feature' which is a bus location to be added to the array
@@ -21,31 +21,6 @@ const makeFeature = (coords, route) => {
     }
     return feature;
 }
-
-const addLayer = () => {
-    let geojson = {
-        "type": "FeatureCollection", "features": points
-    }
-    map.addSource('point', {
-        "type": "geojson",
-        "data": geojson
-    });
-    map.addLayer({
-        'id': 'points',
-        'type': 'symbol',
-        'source': 'point', // reference the data source
-        'layout': {
-            'icon-image': 'bus_icon', // reference the image
-            'icon-size': 0.15
-        }
-    });
-}
-
-const removeLayer = () => {
-    map.removeLayer('points');
-    map.removeSource('point');
-}
-
 
 /**
  * Load the map centered on our coordinates
@@ -89,7 +64,7 @@ const createMap = () => {
         //     .addTo(map);
     });
             
-    map.on('mouseleave', 'places', () => {
+    map.on('mouseleave', 'points', () => {
         map.getCanvas().style.cursor = '';
         popup.remove();
     });
@@ -102,8 +77,24 @@ const createMap = () => {
         (error, image) => {
             if (error) throw error;
             map.addImage('bus_icon', image);
-            animateBuses();
-        });          
+            drawBuses();
+        });   
+        let geojson = {
+            "type": "FeatureCollection", "features": points
+        }
+        map.addSource('point', {
+            "type": "geojson",
+            "data": geojson
+        });
+        map.addLayer({
+            'id': 'points',
+            'type': 'symbol',
+            'source': 'point', // reference the data source
+            'layout': {
+                'icon-image': 'bus_icon', // reference the image
+                'icon-size': 0.15
+            }
+        });       
     });    
 }
 
@@ -119,8 +110,9 @@ const getBusLocations = async () => {
  * Draw the buses onto the map. Calls makeFeature() to make each feature.
  * @param {*} data is the JSON array from getBusLocations() API call
  */
-const drawBuses = (data) => {
-    let index = 0;
+const drawBuses = async () => {
+    const data = await getBusLocations();
+    points = [];
     for (bus of data) {
         let lat = bus.attributes.latitude;
         let lon = bus.attributes.longitude;
@@ -130,30 +122,30 @@ const drawBuses = (data) => {
         description += `<ul><li>Occupancy Status: ${bus.attributes.occupancy_status}</li>`;
         description += `<li>Speed: ${bus.attributes.speed}</li></ul>`
         points.push(makeFeature(coords, description));
-        index++;
     }
-    addLayer();
+    
+    let geojson = {
+        "type": "FeatureCollection", "features": points
+    }
+    map.getSource('point').setData(geojson)
+    setTimeout( () => {
+        drawBuses();
+        updateText(data.length);
+    }, 20000);
 }
 
 /**
- * Function to animate and update buses every 20 seconds
+ * Update the text elements of the page
  */
-const animateBuses = async () => {
-    const buses = await getBusLocations();
-    drawBuses(buses);
+const updateText = (buses) => {
     const p = document.getElementById('latest_data');
     const currentDate = new Date();
     const currentTime = currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
-    p.innerHTML = `CURRENT BUSES ON THE ROAD: ${buses.length}`;
-
+    p.innerHTML = `CURRENT BUSES ON THE ROAD: ${buses}`;
     const updateSpeed = document.getElementById('updateSpeed');
     updateSpeed.innerHTML = `${currentTime}`;
-
-    setTimeout( () => {
-        removeLayer();
-        animateBuses();
-    }, 20000);
 }
+
 
 /**
  * Creates the map.
