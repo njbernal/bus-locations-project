@@ -145,10 +145,10 @@ const animateBuses = async () => {
     const updateSpeed = document.getElementById('updateSpeed');
     updateSpeed.innerHTML = `${currentTime}`;
 
-    // setTimeout( () => {
-    //     removeLayer();
-    //     animateBuses();
-    // }, 20000);
+    setTimeout( () => {
+        removeLayer();
+        animateBuses();
+    }, 20000);
 }
 
 /**
